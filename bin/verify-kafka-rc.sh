@@ -41,13 +41,15 @@ if [ $# -ne 2 ]; then
     exit 1
 fi
 
-for x in wget gpg md5sum sha1sum sha512sum tr cut tar gradle; do
+set +e
+for x in wget gpg md5sum sha1sum sha512sum tr cut tar gradle sed; do
     which $x >/dev/null
     if [ $? -ne 0 ]; then
         echo "missing required utility $x">&2
         exit 1;
     fi
 done
+set -e 
 
 declare -r KEYS_URL='https://kafka.apache.org/KEYS'
 declare -r WORKDIR="$TMPDIR/$$.out"
