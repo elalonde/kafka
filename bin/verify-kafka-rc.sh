@@ -98,24 +98,10 @@ tar zxf kafka-$VERSION-src.tgz
 pushd $WORKDIR/kafka-$VERSION-src >/dev/null
 echo -e "Invoking gradle"
 gradle
-echo -e "\tBuilding jar from source"
-./gradlew
-echo -e "\tBuilding source jar"
-./gradlew srcJar
-echo -e "\tBuilding javadoc"
-./gradlew javadoc
-echo -e "\tBuilding javadoc jar"
-./gradlew javadocJar # builds a javadoc jar for each module
-echo -e "\tBuilding scaladoc"
-./gradlew scaladoc
-echo -e "\tBuilding scaladoc jar"
-./gradlew scaladocJar # builds a scaladoc jar for each module
-echo -e "\tBuilding docs jar"
-./gradlew docsJar # builds both (if applicable) javadoc and scaladoc jars for each module
-echo -e "\tRunning unit tests"
-./gradlew unitTest
-echo -e "\tRunning integration tests"
-./gradlew integrationTest
+for x in srcJar javadoc javadocJar scaladoc scaladocJar docsjar unitTest integrationTest; do
+    echo -e "\tBuilding $x"
+    ./gradlew $x
+done
 popd >/dev/null
 popd >/dev/null
 echo "All steps successful."
