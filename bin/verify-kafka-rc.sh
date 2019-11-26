@@ -51,8 +51,10 @@ for x in wget gpg md5sum sha1sum sha512sum tr cut tar gradle sed; do
 done
 set -e 
 
+TMP_DIR=$(mktemp -d -t verify-kafka-XXXXXXXXXX)
+
 declare -r KEYS_URL='https://kafka.apache.org/KEYS'
-declare -r WORKDIR="$TMPDIR/$$.out"
+declare -r WORKDIR="$TMP_DIR/$$.out"
 declare -r KEYS_FILE="$WORKDIR/keys.out"
 declare -r VERSION="$1"
 declare -r REMOTE_RELEASE_SITE="$2"
