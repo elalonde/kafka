@@ -64,7 +64,7 @@ declare -r WORKDIR="$TMPDIR/$$.out"
 declare -r KEYS_FILE="$WORKDIR/keys.out"
 declare -r VERSION="$1"
 declare -r REMOTE_RELEASE_SITE="$2"
-declare -r FILES=RELEASE_NOTES.html\ kafka-$VERSION-src.tgz\ kafka_2.11-$VERSION-site-docs.tgz\ kafka_2.11-$VERSION.tgz\ kafka_2.12-$VERSION-site-docs.tgz\ kafka_2.12-$VERSION.tgz
+declare -r FILES=RELEASE_NOTES.html\ kafka-$VERSION-src.tgz\ kafka_2.11-$VERSION-site-docs.tgz\ kafka_2.11-$VERSION.tgz\ kafka_2.12-$VERSION-site-docs.tgz\ kafka_2.12-$VERSION.tgz\ kafka_2.13-$VERSION-site-docs.tgz\ kafka_2.13-$VERSION.tgz
 
 mkdir -p $WORKDIR
 
